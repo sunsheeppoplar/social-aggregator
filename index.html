@@ -26,12 +26,12 @@
     }
 
     header {
+      background-color: #000000;
       position:relative;
       border-top:2px solid #21c1ff;
       width:300px;
       height:140px;
-      background-color:#f0f0f0;
-      z-index:10
+      z-index:10;
     }
 
     header img {
@@ -46,7 +46,6 @@
       position:relative;
       width:300px;
       height:33px;
-      text-align:center;
       top:-33px;
       border-bottom:2px solid #ccc;
       z-index:11
@@ -54,14 +53,31 @@
 
     button {
       background:0;
-      height:33px;
-      padding:0 10px;
-      margin:0 15px;
-      color:#ccc;
       border:0;
       border-bottom:2px solid #ccc;
+      color:#ccc;
       cursor:pointer;
-      outline:none
+      display: block;
+      float: left;
+      height:33px;
+      margin:0px;
+      outline: none
+      padding: 0 10px;
+      width: 100px;
+    }
+    
+    button#tumblr {
+      background-color: #ffffff;
+    }
+
+    button#twitter {
+      background-color: #1da1f2;
+      color: #ffffff;
+    }
+
+    button#facebook {
+      background-color: #4e69a2;
+      color: #ffffff;
     }
 
     .active {
@@ -193,6 +209,10 @@
       transform:translate(-50%,-50%)
     }
   </style>
+  
+  <!-- added for social media icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
 </head>
 <body>
 
@@ -208,14 +228,14 @@
   <article>
     <a target="_blank" href="http://mic.com/">
       <header>
-        <img src="img/mic-black.png">
+        <img src="img/mic-white.png">
       </header>
     </a>
 
     <nav>
-      <button data-tab="tumblr" class="active">Tumblr</button>
-      <button data-tab="twitter">Twitter</button>
-      <button data-tab="facebook">Facebook</button>
+      <button data-tab="tumblr" class="active" id="tumblr"><i class="fa fa-tumblr" aria-hidden="true"></i>  Tumblr</button>
+      <button data-tab="twitter" id="twitter"><i class="fa fa-twitter" aria-hidden="true"></i>  Twitter</button>
+      <button data-tab="facebook" id="facebook"><i class="fa fa-facebook" aria-hidden="true"></i>  Facebook</button>
     </nav>
 
     <section id="tumblr" class="active">
