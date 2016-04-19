@@ -1,0 +1,395 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    @font-face {
+      font-family: ProximaNovaSB;
+      src: url(fonts/ProximaNova/ProximaNova-SemiBold.otf)
+    }
+
+    * {
+      box-sizing:border-box;
+      padding:0;
+      margin:0;
+      font-family: ProximaNovaSB
+    }
+
+    article {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:300px;
+      overflow:hidden;
+      height:600px
+    }
+
+    header {
+      position:relative;
+      border-top:2px solid #21c1ff;
+      width:300px;
+      height:140px;
+      background-color:#f0f0f0;
+      z-index:10
+    }
+
+    header img {
+      position:absolute;
+      top:45%;
+      left:50%;
+      width:33%;
+      transform:translate(-50%,-50%)
+    }
+
+    nav {
+      position:relative;
+      width:300px;
+      height:33px;
+      text-align:center;
+      top:-33px;
+      border-bottom:2px solid #ccc;
+      z-index:11
+    }
+
+    button {
+      background:0;
+      height:33px;
+      padding:0 10px;
+      margin:0 15px;
+      color:#ccc;
+      border:0;
+      border-bottom:2px solid #ccc;
+      cursor:pointer;
+      outline:none
+    }
+
+    .active {
+      opacity:1 !important;
+      transition:opacity 500ms ease-in 0ms, height 0ms ease-in 0ms !important
+    }
+
+    button.active, button:hover {
+      color:#000;
+      border-bottom:2px solid #000
+    }
+
+    section {
+      position:absolute;
+      top:140px;
+      left:0;
+      width:300px;
+      height:0;
+      background:#fff;
+      opacity:0;
+      overflow:hidden;
+      transition:opacity 500ms ease-out 0ms, height 0ms ease-out 500ms
+    }
+
+    section.active {
+      height:295px
+    }
+
+    #video-wrap {
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:300px;
+      height:168px;
+      border-top:2px solid #21c1ff;
+      background:#ccc;
+      z-index:15
+    }
+
+    section#tumblr img.arrow {
+      position:absolute;
+      top:50%;
+      width:12px;
+      opacity:0.5;
+      cursor:pointer;
+      z-index:25
+    }
+
+    section#tumblr img.arrow:hover {
+      opacity:1
+    }
+
+    section#tumblr img.arrow.left { 
+      left:15px;
+      transform:translate(0,-50%) rotate(180deg)
+    }
+
+    section#tumblr img.arrow.right {
+      right:15px;
+      transform:translate(0,-50%)
+    }
+
+    section#tumblr main {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:225px;
+      height:0;
+      opacity:0;
+      overflow:hidden;
+      z-index:15
+    }
+
+    section#tumblr main.active {
+      height:225px
+    }
+
+    section#tumblr main ul {
+      width:5000%;
+      height:100%
+    }
+
+    section#tumblr ul li {
+      float:left;
+      width:225px;
+      height:225px;
+      margin-left:0;
+      transition:margin-left 250ms ease-out
+    }
+
+    section#tumblr ul li img {
+      float:left;
+      width:calc(50% - 10px);
+      margin:5px;
+      cursor:pointer
+    }
+
+    section#tumblr ul li img:hover, section#tumblr ul li img.active {
+      border:2px solid #21c1ff
+    }
+
+    article.overlay {
+      height:0;
+      opacity:0;
+      background:rgba(0,0,0,0.7);
+      color:#fff;
+      cursor:pointer;
+      transition:opacity 500ms ease-out 0ms, height 0ms ease-out 500ms;
+      z-index:99
+    }
+
+    article.overlay.active {
+      height:600px
+    }
+
+    article.overlay div {
+      position:absolute;
+      top:5px;
+      right:5px
+    }
+
+    article.overlay img {
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:90%;
+      height:auto;
+      transform:translate(-50%,-50%)
+    }
+  </style>
+</head>
+<body>
+
+<div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=581004625400539";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <article>
+    <a target="_blank" href="http://mic.com/">
+      <header>
+        <img src="img/mic-black.png">
+      </header>
+    </a>
+
+    <nav>
+      <button data-tab="tumblr" class="active">Tumblr</button>
+      <button data-tab="twitter">Twitter</button>
+      <button data-tab="facebook">Facebook</button>
+    </nav>
+
+    <section id="tumblr" class="active">
+      <main><ul></ul></main>
+      <img src="img/mic-arrow.png" class="arrow right">
+      <img src="img/mic-arrow.png" class="arrow left">
+    </section>
+
+    <section id="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/realDonaldTrump" data-widget-id="712655386478821376">Tweets by @realDonaldTrump</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </section>
+
+    <section id="facebook">
+      <div class="fb-page" data-href="https://www.facebook.com/MicMedia/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MicMedia/"><a href="https://www.facebook.com/MicMedia/">Mic</a></blockquote></div></div>
+    </section>
+
+    <div id="video-wrap"></div>
+  </article>
+
+  <article class="overlay">
+    <div>X</div>
+    <img>
+  </article>
+
+  <script type="text/javascript">
+    // tabs
+    var tabs = document.querySelector('nav').querySelectorAll('button'),
+      clickTab = function(){
+        document.querySelector('button.active').classList.remove('active');
+        document.querySelector('section.active').classList.remove('active');
+
+        this.classList.add('active');
+        document.querySelector('section#'+this.dataset.tab).classList.add('active');
+      };
+
+    for(var i = 0; i < tabs.length; i++){
+      tabs[i].onclick = clickTab;
+    }
+
+    // overlay
+    var ol = document.querySelector('article.overlay'),
+      oli = ol.querySelector('img'),
+      initOverlay = function(){
+        oli.src = this.dataset.large;
+      },
+      launchOverlay = function(){
+        ol.classList.add('active');
+      },
+      closeOverlay = function(){
+        ol.classList.remove('active');
+      };
+
+    ol.onclick = closeOverlay;
+    oli.onload = launchOverlay;
+
+    // tumblr
+    var tumblrBuild = function(data){
+      var ul = document.querySelector('section#tumblr ul'),
+        imgs = [];
+
+      for ( var x = 0, limit = data.posts.length; x < limit; x++ ) {
+        if(data.posts[x]['photo-url-75']){
+          var img = document.createElement('img');
+            img.src = data.posts[x]['photo-url-75'];
+            img.dataset.large = data.posts[x]['photo-url-250'];
+            img.onclick = initOverlay;
+
+          imgs.push(img);
+
+          if(imgs.length == 4) {
+            var page = document.createElement('li');
+
+            for(var i = 0; i < imgs.length; i++){
+              page.appendChild(imgs[i]);
+            }
+
+            ul.appendChild(page);
+            imgs = [];
+          } 
+        }
+      }
+
+      // pagination
+      var animating = 0;
+
+      var left = document.querySelector('img.arrow.left');
+        left.onclick = function(){
+          if(!animating){
+            animating = 1;
+            var page = document.querySelectorAll('section#tumblr main ul li');
+              page = page[page.length - 1];
+            
+            page.style.marginLeft = '-225px';
+            ul.removeChild(page);
+            
+
+            ul.insertBefore(page, ul.firstChild);
+            window.setTimeout(function(){
+              page.style.marginLeft = '0';
+            }, 50);
+
+            window.setTimeout(function(){
+              animating = 0;
+            }, 300);
+          }
+        };
+
+      var right = document.querySelector('img.arrow.right');
+        right.onclick = function(){
+          if(!animating){
+            animating = 1;
+            var page = document.querySelectorAll('section#tumblr main ul li')[0];
+            
+            window.setTimeout(function(){
+              page.style.marginLeft = '-225px';
+            }, 50);
+
+            window.setTimeout(function(){
+              ul.removeChild(page);
+              page.style.marginLeft = '0';
+              ul.appendChild(page);
+              animating = 0;
+            }, 300);
+          }
+        };
+
+      document.querySelector('section#tumblr main').classList.add('active');
+    };
+
+    var tumblr = document.createElement('script');
+      tumblr.src = 'http://lolcat.tumblr.com/api/read/json?callback=tumblrBuild';
+
+    document.getElementsByTagName('head')[0].appendChild(tumblr);
+
+
+    //youtube stuff
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('video-wrap', {
+        height: '300',
+        width: '168',
+        videoId: 'dKEsuY2_iIg',
+        playerVars: {
+          'autoplay': 0,
+          'info': 0,
+          'controls': 0,
+          'rel': 0
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.setVolume(0);
+      event.target.playVideo();
+    }
+
+    var autoplay = true;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PAUSED && autoplay) {
+        event.target.setVolume(100);
+        event.target.playVideo();
+        autoplay = false;
+      }
+    }
+  </script>
+</body>
+</html>
