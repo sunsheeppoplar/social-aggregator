@@ -284,9 +284,13 @@
       },
       launchOverlay = function(){
         ol.classList.add('active');
+        if (autoplay == !true) {
+          player.pauseVideo();
+      }
       },
       closeOverlay = function(){
         ol.classList.remove('active');
+        player.playVideo();
       };
 
     ol.onclick = closeOverlay;
@@ -410,6 +414,14 @@
         autoplay = false;
       }
     }
+
+    function pauseListener() {
+      player.pauseVideo();
+    }
+
+    var micHeader = document.querySelector('header')
+    micHeader.addEventListener('click', pauseListener)
+
   </script>
 </body>
 </html>
